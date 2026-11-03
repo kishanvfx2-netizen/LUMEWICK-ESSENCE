@@ -5,27 +5,28 @@ export default function Hero() {
         minHeight: "90vh",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
-        padding: "0 24px"
+        padding: "0 60px",
       }}
     >
       <div
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1400px",
+          margin: "0 auto",
           width: "100%",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "60px",
-          alignItems: "center"
+          gap: "80px",
+          alignItems: "center",
         }}
       >
         <div>
           <p
             style={{
-              letterSpacing: "4px",
               color: "#C9A86A",
-              marginBottom: "20px",
-              textTransform: "uppercase"
+              letterSpacing: "4px",
+              textTransform: "uppercase",
+              marginBottom: "24px",
+              fontFamily: "Inter",
             }}
           >
             Crafted to Gift. Designed to Remember.
@@ -33,42 +34,47 @@ export default function Hero() {
 
           <h1
             style={{
-              fontSize: "72px",
-              fontWeight: 300,
-              lineHeight: 1.1
+              fontFamily: "Playfair Display",
+              fontSize: "92px",
+              lineHeight: "0.95",
+              fontWeight: 500,
             }}
           >
-            Candle Bouquets
+            Candle
+            <br />
+            Bouquets
             <br />
             Reimagined
           </h1>
 
           <p
             style={{
-              marginTop: "24px",
+              marginTop: "30px",
               fontSize: "20px",
+              maxWidth: "520px",
               color: "#666",
-              maxWidth: "500px"
+              lineHeight: 1.7,
             }}
           >
-            Luxury candle bouquets and curated gift collections
-            designed for life's most meaningful moments.
+            Luxury candle bouquets, curated gift boxes,
+            and handcrafted collections designed for
+            life's most meaningful moments.
           </p>
 
           <div
             style={{
               display: "flex",
               gap: "16px",
-              marginTop: "40px"
+              marginTop: "40px",
             }}
           >
             <button
               style={{
-                background: "#111",
+                background: "#1F1F1F",
                 color: "#fff",
                 border: "none",
+                padding: "18px 34px",
                 borderRadius: "999px",
-                padding: "16px 32px"
               }}
             >
               Build Your Bouquet
@@ -77,24 +83,33 @@ export default function Hero() {
             <button
               style={{
                 background: "transparent",
-                border: "1px solid #111",
+                border: "1px solid #1F1F1F",
+                padding: "18px 34px",
                 borderRadius: "999px",
-                padding: "16px 32px"
               }}
             >
-              Explore Gift Boxes
+              Explore Collections
             </button>
           </div>
         </div>
 
-        <div
-          style={{
-            height: "600px",
-            borderRadius: "32px",
-            background:
-              "linear-gradient(135deg,#f2e7d5,#d6c19a)"
-          }}
-        />
+        <div>
+          <div
+            style={{
+              height: "700px",
+              borderRadius: "36px",
+              background:
+                "linear-gradient(135deg,#f2e7d5,#d6c19a)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "28px",
+              color: "#5c4630",
+            }}
+          >
+            Hero Bouquet Image
+          </div>
+        </div>
       </div>
     </section>
   );
