@@ -49,9 +49,9 @@ export default function Navbar() {
             alignItems: "center",
           }}
         >
-          <a href="#" style={{ color: "#444" }}>
-            Build Bouquet
-          </a>
+        <a href="/bouquet-builder">
+  Build Bouquet
+</a>
 
           <a href="#" style={{ color: "#444" }}>
             Gift Boxes
