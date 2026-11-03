@@ -1,31 +1,100 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-5xl text-center">
-        <p className="uppercase tracking-[0.4em] text-sm mb-6 text-amber-700">
-          Crafted to Gift. Designed to Remember.
-        </p>
+    <section
+      style={{
+        minHeight: "90vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0 24px"
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1200px",
+          width: "100%",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "60px",
+          alignItems: "center"
+        }}
+      >
+        <div>
+          <p
+            style={{
+              letterSpacing: "4px",
+              color: "#C9A86A",
+              marginBottom: "20px",
+              textTransform: "uppercase"
+            }}
+          >
+            Crafted to Gift. Designed to Remember.
+          </p>
 
-        <h1 className="text-6xl md:text-8xl font-light leading-tight">
-          Candle Bouquets
-          <br />
-          Reimagined
-        </h1>
+          <h1
+            style={{
+              fontSize: "72px",
+              fontWeight: 300,
+              lineHeight: 1.1
+            }}
+          >
+            Candle Bouquets
+            <br />
+            Reimagined
+          </h1>
 
-        <p className="mt-8 text-lg max-w-2xl mx-auto text-neutral-600">
-          Luxury candle bouquets, curated gift boxes, and handcrafted
-          collections designed for life's most meaningful moments.
-        </p>
+          <p
+            style={{
+              marginTop: "24px",
+              fontSize: "20px",
+              color: "#666",
+              maxWidth: "500px"
+            }}
+          >
+            Luxury candle bouquets and curated gift collections
+            designed for life's most meaningful moments.
+          </p>
 
-        <div className="mt-12 flex flex-col md:flex-row gap-4 justify-center">
-          <button className="bg-black text-white px-8 py-4 rounded-full">
-            Build Your Bouquet
-          </button>
+          <div
+            style={{
+              display: "flex",
+              gap: "16px",
+              marginTop: "40px"
+            }}
+          >
+            <button
+              style={{
+                background: "#111",
+                color: "#fff",
+                border: "none",
+                borderRadius: "999px",
+                padding: "16px 32px"
+              }}
+            >
+              Build Your Bouquet
+            </button>
 
-          <button className="border border-black px-8 py-4 rounded-full">
-            Explore Gift Boxes
-          </button>
+            <button
+              style={{
+                background: "transparent",
+                border: "1px solid #111",
+                borderRadius: "999px",
+                padding: "16px 32px"
+              }}
+            >
+              Explore Gift Boxes
+            </button>
+          </div>
         </div>
+
+        <div
+          style={{
+            height: "600px",
+            borderRadius: "32px",
+            background:
+              "linear-gradient(135deg,#f2e7d5,#d6c19a)"
+          }}
+        />
       </div>
     </section>
   );
