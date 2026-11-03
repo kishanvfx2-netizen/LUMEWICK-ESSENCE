@@ -1,16 +1,13 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import FeaturedCollections from "../components/FeaturedCollections";
 
 export default function HomePage() {
   return (
-    <main
-      style={{
-        background: "#F8F5EE",
-        minHeight: "100vh",
-      }}
-    >
+    <>
       <Navbar />
       <Hero />
-    </main>
+      <FeaturedCollections />
+    </>
   );
 }
