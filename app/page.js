@@ -1,23 +1,16 @@
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+
 export default function HomePage() {
   return (
     <main
       style={{
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         background: "#F8F5EE",
+        minHeight: "100vh",
       }}
     >
-      <div style={{ textAlign: "center" }}>
-        <h1 style={{ fontSize: "4rem" }}>
-          Lumewick Essence
-        </h1>
-
-        <p>
-          Crafted to Gift. Designed to Remember.
-        </p>
-      </div>
+      <Navbar />
+      <Hero />
     </main>
   );
 }
