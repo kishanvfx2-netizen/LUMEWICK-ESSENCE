@@ -8,46 +8,30 @@ export default function BouquetBuilder() {
   const [size, setSize] = useState("Signature");
   const [color, setColor] = useState("Pink");
 
-  const sizes = [
-    {
-      name: "Petite",
-      price: 59,
-      description: "Elegant starter bouquet",
-    },
-    {
-      name: "Signature",
-      price: 89,
-      description: "Most popular arrangement",
-    },
-    {
-      name: "Grand",
-      price: 129,
-      description: "Luxury statement bouquet",
-    },
-  ];
+  const [extras, setExtras] = useState({
+    card: false,
+    teddy: false,
+    luxury: false,
+  });
 
-  const colors = [
-    {
-      name: "Red",
-      value: "#D12B2B",
-    },
-    {
-      name: "Pink",
-      value: "#F4B6C2",
-    },
-    {
-      name: "White",
-      value: "#FFFFFF",
-    },
-    {
-      name: "Mixed",
-      value:
-        "linear-gradient(45deg,#ff6b6b,#ffd93d,#6bcB77)",
-    },
-  ];
+  const sizes = {
+    Petite: 59,
+    Signature: 89,
+    Grand: 129,
+  };
 
-  const selectedSize =
-    sizes.find((s) => s.name === size);
+  const total =
+    sizes[size] +
+    (extras.card ? 3 : 0) +
+    (extras.teddy ? 15 : 0) +
+    (extras.luxury ? 10 : 0);
+
+  const toggleExtra = (key) => {
+    setExtras({
+      ...extras,
+      [key]: !extras[key],
+    });
+  };
 
   return (
     <>
@@ -55,9 +39,9 @@ export default function BouquetBuilder() {
 
       <main
         style={{
-          background: "#F8F5EE",
+          background: "#F3EFE8",
           minHeight: "100vh",
-          padding: "40px",
+          padding: "50px",
         }}
       >
         <div
@@ -66,23 +50,41 @@ export default function BouquetBuilder() {
             margin: "0 auto",
           }}
         >
-          <h1
+          <div
             style={{
-              fontSize: "72px",
-              marginBottom: "10px",
+              marginBottom: "40px",
             }}
           >
-            Design Your Bouquet
-          </h1>
+            <div
+              style={{
+                fontSize: "14px",
+                color: "#888",
+                marginBottom: "12px",
+              }}
+            >
+              Home / Build Bouquet
+            </div>
 
-          <p
-            style={{
-              color: "#666",
-              marginBottom: "50px",
-            }}
-          >
-            Create a personalized gifting experience.
-          </p>
+            <h1
+              style={{
+                fontSize: "42px",
+                fontWeight: "600",
+                marginBottom: "10px",
+                color: "#1F1F1F",
+              }}
+            >
+              Build Your Bouquet
+            </h1>
+
+            <p
+              style={{
+                color: "#666",
+                fontSize: "16px",
+              }}
+            >
+              Personalize your arrangement in seconds.
+            </p>
+          </div>
 
           <div
             style={{
@@ -93,161 +95,192 @@ export default function BouquetBuilder() {
           >
             <div
               style={{
-                background: "#fff",
-                borderRadius: "30px",
+                background: "#FFFFFF",
+                borderRadius: "28px",
                 padding: "30px",
                 boxShadow:
-                  "0 10px 40px rgba(0,0,0,0.05)",
+                  "0 20px 60px rgba(0,0,0,0.06)",
+                height: "fit-content",
               }}
             >
-              <h2>Choose Size</h2>
+              <h3
+                style={{
+                  fontSize: "18px",
+                  marginBottom: "20px",
+                }}
+              >
+                Bouquet Size
+              </h3>
 
-              <div style={{ marginTop: "20px" }}>
-                {sizes.map((item) => (
+              {Object.keys(sizes).map((item) => (
+                <div
+                  key={item}
+                  onClick={() => setSize(item)}
+                  style={{
+                    cursor: "pointer",
+                    padding: "18px",
+                    marginBottom: "12px",
+                    borderRadius: "18px",
+                    border:
+                      size === item
+                        ? "2px solid #C5A15A"
+                        : "1px solid #E4E4E4",
+                    background:
+                      size === item
+                        ? "#FFF8EA"
+                        : "#FFF",
+                    transition: "all .2s ease",
+                  }}
+                >
                   <div
-                    key={item.name}
-                    onClick={() =>
-                      setSize(item.name)
-                    }
                     style={{
-                      border:
-                        size === item.name
-                          ? "2px solid #C9A86A"
-                          : "1px solid #ddd",
-                      borderRadius: "18px",
-                      padding: "20px",
-                      marginBottom: "12px",
-                      cursor: "pointer",
-                      background:
-                        size === item.name
-                          ? "#FFFDF8"
-                          : "#fff",
+                      fontWeight: "600",
                     }}
                   >
-                    <strong>{item.name}</strong>
-
-                    <div
-                      style={{
-                        color: "#666",
-                        marginTop: "8px",
-                      }}
-                    >
-                      {item.description}
-                    </div>
+                    {item}
                   </div>
-                ))}
-              </div>
 
-              <hr style={{ margin: "30px 0" }} />
+                  <div
+                    style={{
+                      color: "#666",
+                      marginTop: "6px",
+                    }}
+                  >
+                    ${sizes[item]}
+                  </div>
+                </div>
+              ))}
 
-              <h2>Color Theme</h2>
+              <hr
+                style={{
+                  margin: "30px 0",
+                  border: "none",
+                  borderTop: "1px solid #EEE",
+                }}
+              />
+
+              <h3
+                style={{
+                  fontSize: "18px",
+                  marginBottom: "20px",
+                }}
+              >
+                Color Theme
+              </h3>
 
               <div
                 style={{
                   display: "flex",
-                  gap: "12px",
-                  marginTop: "20px",
+                  gap: "14px",
                 }}
               >
-                {colors.map((item) => (
+                {[
+                  ["Red", "#D62828"],
+                  ["Pink", "#E8AAB8"],
+                  ["White", "#FFFFFF"],
+                  ["Mixed", "#D4AF37"],
+                ].map(([name, value]) => (
                   <div
-                    key={item.name}
-                    onClick={() =>
-                      setColor(item.name)
-                    }
+                    key={name}
+                    onClick={() => setColor(name)}
                     style={{
-                      width: "50px",
-                      height: "50px",
+                      width: "54px",
+                      height: "54px",
                       borderRadius: "50%",
+                      background: value,
                       cursor: "pointer",
                       border:
-                        color === item.name
-                          ? "3px solid black"
-                          : "1px solid #ddd",
-                      background:
-                        item.value,
+                        color === name
+                          ? "3px solid #111"
+                          : "1px solid #DDD",
                     }}
                   />
                 ))}
               </div>
 
-              <hr style={{ margin: "30px 0" }} />
-
-              <h2>Extras</h2>
-
-              <div
+              <hr
                 style={{
-                  marginTop: "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "12px",
+                  margin: "30px 0",
+                  border: "none",
+                  borderTop: "1px solid #EEE",
+                }}
+              />
+
+              <h3
+                style={{
+                  fontSize: "18px",
+                  marginBottom: "20px",
                 }}
               >
-                <div
-                  style={{
-                    padding: "16px",
-                    border: "1px solid #ddd",
-                    borderRadius: "14px",
-                  }}
-                >
-                  Greeting Card
-                </div>
+                Extras
+              </h3>
 
+              {[
+                ["card", "Greeting Card", 3],
+                ["teddy", "Teddy Bear", 15],
+                ["luxury", "Luxury Packaging", 10],
+              ].map(([key, label, price]) => (
                 <div
+                  key={key}
+                  onClick={() => toggleExtra(key)}
                   style={{
-                    padding: "16px",
-                    border: "1px solid #ddd",
-                    borderRadius: "14px",
+                    cursor: "pointer",
+                    padding: "18px",
+                    marginBottom: "12px",
+                    borderRadius: "18px",
+                    border: extras[key]
+                      ? "2px solid #C5A15A"
+                      : "1px solid #E4E4E4",
+                    background: extras[key]
+                      ? "#FFF8EA"
+                      : "#FFF",
+                    display: "flex",
+                    justifyContent:
+                      "space-between",
                   }}
                 >
-                  Teddy Bear
-                </div>
+                  <span>{label}</span>
 
-                <div
-                  style={{
-                    padding: "16px",
-                    border: "1px solid #ddd",
-                    borderRadius: "14px",
-                  }}
-                >
-                  Luxury Packaging
+                  <span>+${price}</span>
                 </div>
-              </div>
+              ))}
 
               <div
                 style={{
-                  marginTop: "40px",
-                  borderTop: "1px solid #eee",
+                  marginTop: "30px",
                   paddingTop: "30px",
+                  borderTop: "1px solid #EEE",
                 }}
               >
                 <div
                   style={{
-                    color: "#666",
+                    color: "#777",
+                    fontSize: "14px",
                   }}
                 >
-                  Starting At
+                  Total
                 </div>
 
                 <div
                   style={{
-                    fontSize: "48px",
-                    fontWeight: "600",
-                    marginTop: "10px",
+                    fontSize: "42px",
+                    fontWeight: "700",
+                    marginTop: "8px",
                   }}
                 >
-                  ${selectedSize.price}
+                  ${total}
                 </div>
 
                 <button
                   style={{
                     width: "100%",
                     marginTop: "20px",
-                    background: "#1F1F1F",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "999px",
                     padding: "18px",
+                    borderRadius: "999px",
+                    border: "none",
+                    background: "#1F1F1F",
+                    color: "#FFF",
+                    fontSize: "16px",
                     cursor: "pointer",
                   }}
                 >
@@ -258,48 +291,91 @@ export default function BouquetBuilder() {
 
             <div
               style={{
-                background: "#FCFAF5",
+                background: "#EAE2D6",
                 borderRadius: "30px",
                 minHeight: "850px",
                 display: "flex",
-                flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
+                padding: "40px",
               }}
             >
               <div
                 style={{
-                  width: "350px",
-                  height: "350px",
-                  borderRadius: "50%",
-                  background:
-                    color === "Red"
-                      ? "#FFD8D8"
-                      : color === "Pink"
-                      ? "#FFEAF0"
-                      : color === "White"
-                      ? "#FFFFFF"
-                      : "linear-gradient(45deg,#ff6b6b,#ffd93d,#6bcB77)",
-                  border: "1px solid #ddd",
-                }}
-              />
-
-              <h2
-                style={{
-                  marginTop: "30px",
+                  width: "100%",
+                  maxWidth: "500px",
+                  background: "#FFF",
+                  borderRadius: "30px",
+                  padding: "40px",
+                  boxShadow               "0 20px 60px rgba(0,0,0,0.08)",
                 }}
               >
-                {size} Bouquet
-              </h2>
+                <div
+                  style={{
+                    width: "220px",
+                    height: "220px",
+                    borderRadius: "50%",
+                    margin: "0 auto",
+                    background:
+                      color === "Red"
+                        ? "#FAD3D3"
+                        : color === "Pink"
+                        ? "#F8DFE6"
+                        : color === "White"
+                        ? "#F5F5F5"
+                        : "linear-gradient(135deg,#FAD961,#F76B1C)",
+                  }}
+                />
 
-              <p
-                style={{
-                  color: "#666",
-                  marginTop: "10px",
-                }}
-              >
-                {color} Theme
-              </p>
+                <h2
+                  style={{
+                    textAlign: "center",
+                    marginTop: "30px",
+                  }}
+                >
+                  {size} Bouquet
+                </h2>
+
+                <p
+                  style={{
+                    textAlign: "center",
+                    color: "#777",
+                    marginTop: "10px",
+                  }}
+                >
+                  {color} Theme
+                </p>
+
+                <div
+                  style={{
+                    marginTop: "30px",
+                  }}
+                >
+                  {extras.card && (
+                    <p>✓ Greeting Card</p>
+                  )}
+
+                  {extras.teddy && (
+                    <p>✓ Teddy Bear</p>
+                  )}
+
+                  {extras.luxury && (
+                    <p>✓ Luxury Packaging</p>
+                  )}
+                </div>
+
+                <div
+                  style={{
+                    marginTop: "30px",
+                    paddingTop: "20px",
+                    borderTop: "1px solid #EEE",
+                    fontSize: "24px",
+                    fontWeight: "600",
+                  }}
+                >
+                  ${total}
+                </div>
+              </div>
             </div>
           </div>
         </div>
