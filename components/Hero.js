@@ -56,9 +56,8 @@ export default function Hero() {
               maxWidth: "520px",
             }}
           >
-            Luxury candle bouquets, curated gift boxes,
-            and handcrafted collections designed for
-            life's most meaningful moments.
+            Luxury candle bouquets, curated gift boxes, and handcrafted
+            collections designed for life's most meaningful moments.
           </p>
 
           <div
@@ -101,9 +100,13 @@ export default function Hero() {
               height: "700px",
               borderRadius: "40px",
               background:
-                "linear-gradient(135deg,#f8f0e4,#d8bf94)",
+                "linear-gradient(135deg, #f8f0e4, #d8bf94)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontSize: "24px",
-             
+              color: "#5A4A32",
+              boxShadow: "0 30px 80px rgba(0,0,0,0.08)",
+            }}
+          >
+            Premium
