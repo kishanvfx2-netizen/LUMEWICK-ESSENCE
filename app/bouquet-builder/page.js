@@ -1,4 +1,52 @@
+"use client";
+
+import { useState } from "react";
+
 export default function BouquetBuilder() {
+  const [size, setSize] = useState("Signature");
+  const [color, setColor] = useState("Pink");
+
+  const sizes = [
+    {
+      name: "Petite",
+      price: 59,
+      description: "Elegant starter bouquet",
+    },
+    {
+      name: "Signature",
+      price: 89,
+      description: "Most popular arrangement",
+    },
+    {
+      name: "Grand",
+      price: 129,
+      description: "Luxury statement bouquet",
+    },
+  ];
+
+  const colors = [
+    {
+      name: "Red",
+      value: "#D12B2B",
+    },
+    {
+      name: "Pink",
+      value: "#F4B6C2",
+    },
+    {
+      name: "White",
+      value: "#FFFFFF",
+    },
+    {
+      name: "Mixed",
+      value:
+        "linear-gradient(45deg,#ff6b6b,#ffd93d,#6bcB77)",
+    },
+  ];
+
+  const selectedSize =
+    sizes.find((s) => s.name === size);
+
   return (
     <main
       style={{
@@ -16,7 +64,7 @@ export default function BouquetBuilder() {
         <h1
           style={{
             fontSize: "72px",
-            marginBottom: "12px",
+            marginBottom: "10px",
           }}
         >
           Design Your Bouquet
@@ -43,52 +91,50 @@ export default function BouquetBuilder() {
               background: "#fff",
               borderRadius: "30px",
               padding: "30px",
-              position: "sticky",
-              top: "100px",
-              height: "fit-content",
               boxShadow:
                 "0 10px 40px rgba(0,0,0,0.05)",
             }}
           >
-            <h2>Size</h2>
+            <h2>Choose Size</h2>
 
             <div
               style={{
                 marginTop: "20px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
               }}
             >
-              <div
-                style={{
-                  border: "2px solid #C9A86A",
-                  borderRadius: "16px",
-                  padding: "18px",
-                }}
-              >
-                Petite
-              </div>
+              {sizes.map((item) => (
+                <div
+                  key={item.name}
+                  onClick={() =>
+                    setSize(item.name)
+                  }
+                  style={{
+                    border:
+                      size === item.name
+                        ? "2px solid #C9A86A"
+                        : "1px solid #ddd",
+                    borderRadius: "18px",
+                    padding: "20px",
+                    marginBottom: "12px",
+                    cursor: "pointer",
+                    background:
+                      size === item.name
+                        ? "#FFFDF8"
+                        : "#fff",
+                  }}
+                >
+                  <strong>{item.name}</strong>
 
-              <div
-                style={{
-                  border: "1px solid #ddd",
-                  borderRadius: "16px",
-                  padding: "18px",
-                }}
-              >
-                Signature
-              </div>
-
-              <div
-                style={{
-                  border: "1px solid #ddd",
-                  borderRadius: "16px",
-                  padding: "18px",
-                }}
-              >
-                Grand
-              </div>
+                  <div
+                    style={{
+                      color: "#666",
+                      marginTop: "8px",
+                    }}
+                  >
+                    {item.description}
+                  </div>
+                </div>
+              ))}
             </div>
 
             <hr
@@ -106,89 +152,36 @@ export default function BouquetBuilder() {
                 marginTop: "20px",
               }}
             >
-              <div
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  background: "#D12B2B",
-                }}
-              />
-
-              <div
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  background: "#F4B6C2",
-                }}
-              />
-
-              <div
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  background: "#FFFFFF",
-                  border: "1px solid #ddd",
-                }}
-              />
-
-              <div
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  background:
-                    "linear-gradient(45deg,#ff6b6b,#ffd93d,#6bcB77)",
-                }}
-              />
-            </div>
-
-            <hr
-              style={{
-                margin: "30px 0",
-              }}
-            />
-
-            <h2>Extras</h2>
-
-            <div style={{ marginTop: "20px" }}>
-              □ Greeting Card
-            </div>
-
-            <div style={{ marginTop: "15px" }}>
-              □ Teddy Bear
-            </div>
-
-            <div style={{ marginTop: "15px" }}>
-              □ Luxury Packaging
+              {colors.map((item) => (
+                <div
+                  key={item.name}
+                  onClick={() =>
+                    setColor(item.name)
+                  }
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "50%",
+                    cursor: "pointer",
+                    border:
+                      color === item.name
+                        ? "3px solid black"
+                        : "1px solid #ddd",
+                    background:
+                      item.value,
+                  }}
+                />
+              ))}
             </div>
 
             <div
               style={{
-                marginTop: "50px",
-                borderTop: "1px solid #eee",
-                paddingTop: "30px",
+                marginTop: "40px",
               }}
             >
-              <div
-                style={{
-                  color: "#666",
-                }}
-              >
-                Starting At
-              </div>
-
-              <div
-                style={{
-                  fontSize: "48px",
-                  fontWeight: "600",
-                  marginTop: "10px",
-                }}
-              >
-                $89
-              </div>
+              <h2>
+                ${selectedSize.price}
+              </h2>
 
               <button
                 style={{
@@ -199,6 +192,7 @@ export default function BouquetBuilder() {
                   border: "none",
                   borderRadius: "999px",
                   padding: "18px",
+                  cursor: "pointer",
                 }}
               >
                 Add To Cart
@@ -210,7 +204,7 @@ export default function BouquetBuilder() {
             style={{
               background: "#FCFAF5",
               borderRadius: "30px",
-              minHeight: "900px",
+              minHeight: "850px",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -223,26 +217,32 @@ export default function BouquetBuilder() {
                 height: "350px",
                 borderRadius: "50%",
                 background:
-                  "linear-gradient(135deg,#f6d3d3,#fff4f4)",
-                marginBottom: "30px",
+                  color === "Red"
+                    ? "#FFD8D8"
+                    : color === "Pink"
+                    ? "#FFEAF0"
+                    : color === "White"
+                    ? "#FFFFFF"
+                    : "linear-gradient(45deg,#ff6b6b,#ffd93d,#6bcB77)",
+                border: "1px solid #ddd",
               }}
             />
 
             <h2
               style={{
-                fontSize: "42px",
+                marginTop: "30px",
               }}
             >
-              Live Preview
+              {size} Bouquet
             </h2>
 
             <p
               style={{
                 color: "#666",
-                marginTop: "12px",
+                marginTop: "10px",
               }}
             >
-              Bouquet preview updates here.
+              {color} Theme
             </p>
           </div>
         </div>
