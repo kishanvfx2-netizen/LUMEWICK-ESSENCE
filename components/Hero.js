@@ -1,109 +1,66 @@
 export default function Hero() {
   return (
     <section
+      className="section"
       style={{
-        minHeight: "90vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "60px",
+        paddingTop: "80px",
       }}
     >
       <div
+        className="container"
         style={{
-          maxWidth: "1400px",
-          width: "100%",
-          display: "grid",
-          gridTemplateColumns: "1fr 1.4fr",
-          gap: "50px",
-          alignItems: "center",
+          textAlign: "center",
         }}
       >
-        <div>
-          <p
-            style={{
-              color: "#C9A86A",
-              letterSpacing: "4px",
-              textTransform: "uppercase",
-              marginBottom: "20px",
-            }}
-          >
-            Crafted to Gift. Designed to Remember.
-          </p>
-
-          <h1
-            style={{
-              fontSize: "80px",
-              lineHeight: "0.95",
-              marginBottom: "24px",
-            }}
-          >
-            Candle
-            <br />
-            Bouquets
-            <br />
-            Reimagined
-          </h1>
-
-          <p
-            style={{
-              fontSize: "20px",
-              color: "#666",
-              maxWidth: "500px",
-              lineHeight: "1.8",
-            }}
-          >
-            Luxury candle bouquets, curated gift boxes,
-            and handcrafted collections designed for
-            life's most meaningful moments.
-          </p>
-
-          <div
-            style={{
-              display: "flex",
-              gap: "16px",
-              marginTop: "40px",
-            }}
-          >
-            <button
-              style={{
-                background: "#1F1F1F",
-                color: "white",
-                border: "none",
-                padding: "18px 36px",
-                borderRadius: "999px",
-              }}
-            >
-              Build Your Bouquet
-            </button>
-
-            <button
-              style={{
-                background: "transparent",
-                border: "1px solid #1F1F1F",
-                padding: "18px 36px",
-                borderRadius: "999px",
-              }}
-            >
-              Explore Collections
-            </button>
-          </div>
-        </div>
-
-        <div
+        <p
           style={{
-            height: "700px",
-            borderRadius: "40px",
-            background:
-              "linear-gradient(135deg,#f8f0e4,#d8bf94)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "24px",
+            color: "#C9A86A",
+            letterSpacing: "4px",
+            textTransform: "uppercase",
+            marginBottom: "20px",
           }}
         >
-          Premium Bouquet Preview
-        </div>
+          Crafted To Gift. Designed To Remember.
+        </p>
+
+        <h1
+          className="heading"
+          style={{
+            fontSize: "72px",
+            maxWidth: "900px",
+            margin: "0 auto",
+            lineHeight: "1.1",
+          }}
+        >
+          Luxury Candle Bouquets For Every Occasion
+        </h1>
+
+        <p
+          style={{
+            maxWidth: "700px",
+            margin: "30px auto",
+            color: "#666",
+            fontSize: "20px",
+            lineHeight: "1.8",
+          }}
+        >
+          Personalized candle bouquets, premium gift boxes,
+          and handcrafted collections designed to create
+          unforgettable gifting experiences.
+        </p>
+
+        <button
+          style={{
+            background: "#C9A86A",
+            color: "white",
+            border: "none",
+            padding: "18px 34px",
+            borderRadius: "999px",
+            fontSize: "16px",
+          }}
+        >
+          Build Your Bouquet
+        </button>
       </div>
     </section>
   );
