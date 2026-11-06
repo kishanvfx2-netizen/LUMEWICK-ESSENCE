@@ -20,18 +20,18 @@ export default function BouquetBuilder() {
     Grand: 129,
   };
 
-  const total =
-    sizes[size] +
-    (extras.card ? 3 : 0) +
-    (extras.teddy ? 15 : 0) +
-    (extras.luxury ? 10 : 0);
-
   const toggleExtra = (key) => {
     setExtras({
       ...extras,
       [key]: !extras[key],
     });
   };
+
+  const total =
+    sizes[size] +
+    (extras.card ? 3 : 0) +
+    (extras.teddy ? 15 : 0) +
+    (extras.luxury ? 10 : 0);
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function BouquetBuilder() {
         style={{
           background: "#F3EFE8",
           minHeight: "100vh",
-          padding: "50px",
+          padding: "40px",
         }}
       >
         <div
@@ -59,7 +59,7 @@ export default function BouquetBuilder() {
               style={{
                 fontSize: "14px",
                 color: "#888",
-                marginBottom: "12px",
+                marginBottom: "10px",
               }}
             >
               Home / Build Bouquet
@@ -69,8 +69,8 @@ export default function BouquetBuilder() {
               style={{
                 fontSize: "42px",
                 fontWeight: "600",
-                marginBottom: "10px",
                 color: "#1F1F1F",
+                marginBottom: "10px",
               }}
             >
               Build Your Bouquet
@@ -93,14 +93,14 @@ export default function BouquetBuilder() {
               gap: "30px",
             }}
           >
+            {/* LEFT PANEL */}
+
             <div
               style={{
                 background: "#FFFFFF",
                 borderRadius: "28px",
                 padding: "30px",
-                boxShadow:
-                  "0 20px 60px rgba(0,0,0,0.06)",
-                height: "fit-content",
+                boxShadow: "0 20px 60px rgba(0,0,0,0.06)",
               }}
             >
               <h3
@@ -129,7 +129,6 @@ export default function BouquetBuilder() {
                       size === item
                         ? "#FFF8EA"
                         : "#FFF",
-                    transition: "all .2s ease",
                   }}
                 >
                   <div
@@ -183,6 +182,7 @@ export default function BouquetBuilder() {
                   <div
                     key={name}
                     onClick={() => setColor(name)}
+                    title={name}
                     style={{
                       width: "54px",
                       height: "54px",
@@ -235,11 +235,14 @@ export default function BouquetBuilder() {
                       ? "#FFF8EA"
                       : "#FFF",
                     display: "flex",
-                    justifyContent:
-                      "space-between",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
                 >
-                  <span>{label}</span>
+                  <span>
+                    {extras[key] ? "✓ " : ""}
+                    {label}
+                  </span>
 
                   <span>+${price}</span>
                 </div>
@@ -281,7 +284,7 @@ export default function BouquetBuilder() {
                     background: "#1F1F1F",
                     color: "#FFF",
                     fontSize: "16px",
-                    cursor: "pointer",
+             cursor: "pointer",
                   }}
                 >
                   Add To Cart
@@ -289,9 +292,11 @@ export default function BouquetBuilder() {
               </div>
             </div>
 
+            {/* RIGHT PANEL */}
+
             <div
               style={{
-                background: "#EAE2D6",
+                background: "#E8DFD1",
                 borderRadius: "30px",
                 minHeight: "850px",
                 display: "flex",
@@ -303,11 +308,11 @@ export default function BouquetBuilder() {
               <div
                 style={{
                   width: "100%",
-                  maxWidth: "500px",
+                  maxWidth: "520px",
                   background: "#FFF",
                   borderRadius: "30px",
                   padding: "40px",
-                  boxShadow               "0 20px 60px rgba(0,0,0,0.08)",
+                  boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
                 }}
               >
                 <div
@@ -351,17 +356,9 @@ export default function BouquetBuilder() {
                     marginTop: "30px",
                   }}
                 >
-                  {extras.card && (
-                    <p>✓ Greeting Card</p>
-                  )}
-
-                  {extras.teddy && (
-                    <p>✓ Teddy Bear</p>
-                  )}
-
-                  {extras.luxury && (
-                    <p>✓ Luxury Packaging</p>
-                  )}
+                  {extras.card && <p>✓ Greeting Card</p>}
+                  {extras.teddy && <p>✓ Teddy Bear</p>}
+                  {extras.luxury && <p>✓ Luxury Packaging</p>}
                 </div>
 
                 <div
