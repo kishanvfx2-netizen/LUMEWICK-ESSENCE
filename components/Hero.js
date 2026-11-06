@@ -2,92 +2,94 @@ export default function Hero() {
   return (
     <section
       style={{
-        minHeight: "100vh",
         position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden"
+        height: "100vh",
+        overflow: "hidden",
       }}
     >
+      {/* Background */}
+
       <div
         style={{
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(135deg,#DDB7C4,#F8F6F2,#A8B8A1)",
-          opacity: 0.25
+            "linear-gradient(135deg,#DDB7C4 0%, #F8F6F2 50%, #A8B8A1 100%)",
+          opacity: 0.35,
         }}
       />
+
+      {/* Hero Image Placeholder */}
 
       <div
         style={{
           position: "absolute",
-          width: "800px",
-          height: "800px",
-          borderRadius: "50%",
-          background: "#DDB7C4",
-          filter: "blur(120px)",
-          opacity: 0.15,
-          left: "-200px",
-          top: "100px"
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          width: "600px",
-          height: "600px",
-          borderRadius: "50%",
-          background: "#A8B8A1",
-          filter: "blur(120px)",
-          opacity: 0.15,
-          right: "-150px",
-          bottom: "-150px"
-        }}
-      />
-
-      <div
-        className="container"
-        style={{
-          position: "relative",
-          zIndex: 2,
-          textAlign: "center",
-          maxWidth: "900px"
+          inset: 0,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          opacity: 0.25,
         }}
       >
-        <p
+        <div
+          style={{
+            width: "700px",
+            height: "700px",
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle,#ffffff,#DDB7C4)",
+            filter: "blur(40px)",
+          }}
+        />
+      </div>
+
+      {/* Content */}
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "120px",
+          left: "8%",
+          maxWidth: "700px",
+        }}
+      >
+        <div
           style={{
             color: "#C9A86A",
             textTransform: "uppercase",
-            letterSpacing: "4px",
-            marginBottom: "20px"
+            letterSpacing: "5px",
+            marginBottom: "20px",
+            fontSize: "14px",
           }}
         >
           Crafted To Gift. Designed To Remember.
-        </p>
+        </div>
 
         <h1
           className="heading"
           style={{
-            fontSize: "clamp(52px,6vw,90px)",
-            lineHeight: "1.05",
-            marginBottom: "20px"
+            fontSize: "clamp(48px,6vw,92px)",
+            lineHeight: "1",
+            marginBottom: "20px",
           }}
         >
-          Luxury Candle Bouquets
+          Luxury
+          <br />
+          Candle Bouquets
         </h1>
 
         <p
           style={{
-            fontSize: "22px",
-            color: "#666",
-            marginBottom: "40px"
+            fontSize: "20px",
+            color: "#555",
+            maxWidth: "550px",
+            lineHeight: "1.8",
+            marginBottom: "30px",
           }}
         >
-          Personalized gifts handcrafted for life's
-          most meaningful celebrations.
+          Personalized candle bouquets and
+          handcrafted gift collections created for
+          life's most meaningful celebrations.
         </p>
 
         <button
@@ -97,20 +99,27 @@ export default function Hero() {
             border: "none",
             borderRadius: "999px",
             padding: "18px 36px",
-            fontSize: "16px"
+            fontSize: "16px",
           }}
         >
           Build Your Bouquet
         </button>
+      </div>
 
-        <div
-          style={{
-            marginTop: "80px",
-            color: "#999"
-          }}
-        >
-          Scroll To Explore ↓
-        </div>
+      {/* Scroll Indicator */}
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "40px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          color: "#777",
+          fontSize: "14px",
+          letterSpacing: "2px",
+        }}
+      >
+        SCROLL ↓
       </div>
     </section>
   );
