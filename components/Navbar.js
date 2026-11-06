@@ -6,7 +6,7 @@ export default function Navbar() {
         top: 0,
         zIndex: 100,
         backdropFilter: "blur(20px)",
-        background: "rgba(248,245,238,0.9)",
+        background: "rgba(246,243,238,0.95)",
         borderBottom: "1px solid rgba(0,0,0,0.05)",
       }}
     >
@@ -14,7 +14,7 @@ export default function Navbar() {
         style={{
           maxWidth: "1400px",
           margin: "0 auto",
-          padding: "20px 40px",
+          padding: "24px 40px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -23,9 +23,9 @@ export default function Navbar() {
         <div>
           <div
             style={{
-              fontSize: "24px",
-              fontWeight: "600",
+              fontSize: "26px",
               letterSpacing: "3px",
+              fontWeight: "600",
             }}
           >
             LUMEWICK
@@ -34,7 +34,7 @@ export default function Navbar() {
           <div
             style={{
               fontSize: "11px",
-              letterSpacing: "4px",
+              letterSpacing: "5px",
               color: "#777",
             }}
           >
@@ -45,34 +45,35 @@ export default function Navbar() {
         <div
           style={{
             display: "flex",
-            gap: "40px",
             alignItems: "center",
+            gap: "36px",
+            fontSize: "14px",
           }}
         >
-        <a href="/bouquet-builder">
-  Build Bouquet
-</a>
+          <a href="/bouquet-builder">
+            Build Bouquet
+          </a>
 
-          <a href="#" style={{ color: "#444" }}>
+          <a href="#">
             Gift Boxes
           </a>
 
-          <a href="#" style={{ color: "#444" }}>
+          <a href="#">
             Candles
           </a>
 
-          <a href="#" style={{ color: "#444" }}>
+          <a href="#">
             Candle Club
           </a>
 
           <button
             style={{
               background: "#1F1F1F",
-              color: "white",
+              color: "#FFF",
               border: "none",
-              padding: "14px 24px",
               borderRadius: "999px",
-              fontWeight: "500",
+              padding: "14px 24px",
+              cursor: "pointer",
             }}
           >
             Start Designing
