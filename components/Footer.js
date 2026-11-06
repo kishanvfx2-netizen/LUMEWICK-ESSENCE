@@ -3,28 +3,44 @@ export default function Footer() {
     <footer
       style={{
         background: "#1F1F1F",
-        color: "white",
+        color: "#FFF",
         padding: "80px 40px",
-        marginTop: "120px"
+        marginTop: "120px",
       }}
     >
       <div
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1400px",
           margin: "0 auto",
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "40px"
+          display: "grid",
+          gridTemplateColumns: "2fr 1fr 1fr",
+          gap: "40px",
         }}
       >
         <div>
-          <h2>LUMEWICK ESSENCE</h2>
-          <p>Crafted to Gift. Designed to Remember.</p>
+          <h2
+            style={{
+              fontFamily:
+                "Playfair Display, serif",
+            }}
+          >
+            Lumewick Essence
+          </h2>
+
+          <p
+            style={{
+              color: "#BBB",
+              lineHeight: "1.8",
+            }}
+          >
+            Crafted to Gift.
+            Designed to Remember.
+          </p>
         </div>
 
         <div>
           <h4>Shop</h4>
+
           <p>Build Bouquet</p>
           <p>Gift Boxes</p>
           <p>Candles</p>
@@ -32,6 +48,7 @@ export default function Footer() {
 
         <div>
           <h4>Company</h4>
+
           <p>About</p>
           <p>Contact</p>
         </div>
