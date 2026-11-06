@@ -2,12 +2,13 @@ export default function Navbar() {
   return (
     <nav
       style={{
-        position: "sticky",
+        position: "fixed",
         top: 0,
-        zIndex: 999,
-        background: "rgba(248,246,242,.95)",
+        width: "100%",
+        zIndex: 1000,
+        background: "rgba(248,246,242,.85)",
         backdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(0,0,0,.05)",
+        borderBottom: "1px solid rgba(0,0,0,.05)"
       }}
     >
       <div
@@ -16,15 +17,16 @@ export default function Navbar() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "24px 40px",
+          height: "90px",
+          padding: "0 40px"
         }}
       >
         <div>
           <div
             style={{
-              fontSize: "32px",
-              letterSpacing: "3px",
+              fontSize: "30px",
               fontWeight: "600",
+              letterSpacing: "2px"
             }}
           >
             LUMEWICK
@@ -32,9 +34,9 @@ export default function Navbar() {
 
           <div
             style={{
-              fontSize: "12px",
+              fontSize: "11px",
               letterSpacing: "6px",
-              color: "#777",
+              color: "#888"
             }}
           >
             ESSENCE
@@ -45,8 +47,7 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "40px",
-            fontSize: "15px",
+            gap: "36px"
           }}
         >
           <a href="/bouquet-builder">Build Bouquet</a>
@@ -62,8 +63,8 @@ export default function Navbar() {
               background: "#C9A86A",
               color: "#fff",
               border: "none",
-              padding: "14px 26px",
               borderRadius: "999px",
+              padding: "14px 28px"
             }}
           >
             Start Designing
