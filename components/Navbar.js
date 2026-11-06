@@ -4,26 +4,25 @@ export default function Navbar() {
       style={{
         position: "sticky",
         top: 0,
-        zIndex: 100,
+        zIndex: 999,
+        background: "rgba(248,246,242,.95)",
         backdropFilter: "blur(20px)",
-        background: "rgba(246,243,238,0.95)",
-        borderBottom: "1px solid rgba(0,0,0,0.05)",
+        borderBottom: "1px solid rgba(0,0,0,.05)",
       }}
     >
       <div
+        className="container"
         style={{
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "24px 40px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          padding: "24px 40px",
         }}
       >
         <div>
           <div
             style={{
-              fontSize: "26px",
+              fontSize: "32px",
               letterSpacing: "3px",
               fontWeight: "600",
             }}
@@ -33,8 +32,8 @@ export default function Navbar() {
 
           <div
             style={{
-              fontSize: "11px",
-              letterSpacing: "5px",
+              fontSize: "12px",
+              letterSpacing: "6px",
               color: "#777",
             }}
           >
@@ -46,34 +45,25 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "36px",
-            fontSize: "14px",
+            gap: "40px",
+            fontSize: "15px",
           }}
         >
-          <a href="/bouquet-builder">
-            Build Bouquet
-          </a>
+          <a href="/bouquet-builder">Build Bouquet</a>
 
-          <a href="#">
-            Gift Boxes
-          </a>
+          <a href="#">Gift Boxes</a>
 
-          <a href="#">
-            Candles
-          </a>
+          <a href="#">Candles</a>
 
-          <a href="#">
-            Candle Club
-          </a>
+          <a href="#">Candle Club</a>
 
           <button
             style={{
-              background: "#1F1F1F",
-              color: "#FFF",
+              background: "#C9A86A",
+              color: "#fff",
               border: "none",
+              padding: "14px 26px",
               borderRadius: "999px",
-              padding: "14px 24px",
-              cursor: "pointer",
             }}
           >
             Start Designing
